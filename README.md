@@ -1,4 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/3qetj7op52ry5075/branch/master?svg=true)](https://ci.appveyor.com/project/fpschultze/test-dbnull/branch/master)
+[![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
 # Test-DBNull
 PowerShell function to test a value against dbnull
