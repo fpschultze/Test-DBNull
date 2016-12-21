@@ -1,20 +1,16 @@
-﻿$here = Split-Path -Parent $MyInvocation.MyCommand.Path
-$sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path).Replace('.Tests.', '.')
-. "$here\..\$sut"
+﻿$ScriptRoot = Split-Path -Parent $PSScriptRoot
+$ScriptFile = (Split-Path -Leaf $PSCommandPath) -replace '\.tests\.ps1$', '.ps1'
+. "$ScriptRoot\$ScriptFile"
 
 Describe 'Test-DBNull' {
 
-    It 'returns False' {
+  It 'running with empty string returns False' {
+    $testValue = ''
+    Test-DBNull -Value $testValue | Should Be $false
+  }
 
-        $testValue = ''
-
-        Test-DBNull -Value $testValue | Should Be $false
-    }
-
-    It 'returns True' {
-
-        $testValue = [System.DBNull]::Value
-
-        Test-DBNull -Value $testValue | Should Be $true
-    }
+  It 'running with DBNull value returns True' {
+    $testValue = [System.DBNull]::Value
+    Test-DBNull -Value $testValue | Should Be $true
+  }
 }
